@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Template_Design_Pattern.DAL.Entities;
+using Template_Design_Pattern.DAL;
 
 namespace Template_Design_Pattern
 {
@@ -24,6 +26,8 @@ namespace Template_Design_Pattern
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<Context>();
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
